@@ -29,7 +29,10 @@ bool IUpdater::CheckUpdate()
     // So we first try to request to Google Script API (we call it "bridge" here)
     // It will forward the request to GitHub REST API with authentication information
     //
-
+    
+    spdlog::warn("[Updater] Disable Update!!!!!");
+    return false;
+    
     std::optional<std::string> Response = GetDataByBridge();
     if (!Response.has_value()) {
         spdlog::warn("[Updater] GetDataByBridge() failed, try GetDataDirectly().");
